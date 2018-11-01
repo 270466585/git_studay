@@ -1,0 +1,100 @@
+URL:
+  XTPZ: #系统/配置
+    - /WebAPI/rest/sys/time #服务器系统时间
+    - /WebAPI/rest/sys/error #所有错误代码信息
+    - /WebAPI/rest/config/recorder #行车记录仪的配置参数
+    - /WebAPI/rest/version #系统升级，取得新版本的信息
+
+  ZC: #注册
+    - /WebAPI/rest/register #取得非注册用户的标识
+    - /WebAPI/rest/register #正式注册
+    - /WebAPI/rest/register/sms #发送验证码手机短信
+
+  DL: #登陆
+    - /WebAPI/rest/auth/authorize #密码方式登录认证
+    - /WebAPI/rest/auth/validcode #验证码方式登录认证
+    - /WebAPI/rest/register/existmobile #手机号码是否已经注册（用于忘记密码、验证码登录之前等场景的判定）
+    - /WebAPI/rest/register/validcode #校验验证码是否正确，用于忘记密码功能
+
+  TC: #退出
+    - /WebAPI/rest/auth/logout #退出登录时，会对该用户和设备解绑，退出对讲状态
+
+  USER: #用户类
+    - /WebAPI/rest/user #获得用户公开信息
+    - /WebAPI/rest/user/find #查找嘟嘟用户(昵称/嘟嘟号/手机号)
+    - /WebAPI/rest/user/update #更新用户信息
+    - /WebAPI/rest/user/introduction #更新签名信息(可为空)
+    - /WebAPI/rest/interphone/register #更新用户极光registerid
+    - /WebAPI/rest/contacts #上传用户手机通讯录到服务器
+    - /WebAPI/rest/contacts #取得用户手机通讯录(包含是否嘟嘟用户/好友)
+    - /WebAPI/rest/user/bluetooth #更新和绑定蓝牙
+    - /WebAPI/rest/user/oftenplace #更新我的导航收藏
+    - /WebAPI/rest/user/oftenplace #取得我的导航收藏
+    - /WebAPI/rest/user/chatrecord #更新我的会话记录
+    - /WebAPI/rest/user/chatrecord #取得我的会话记录
+    - /WebAPI/rest/user/deltachatrecord #更新我的会话记录（增量方式）
+
+  SJCJ: #数据采集
+    - /WebAPI/rest/collect/position #提交用户位置信息
+    - /WebAPI/rest/collect/phoneinfo #提交用户手机信息（品牌、型号、OS等）
+    - /WebAPI/rest/collect/networkflow #提交嘟嘟使用流量等用户使用的情况
+    - /WebAPI/rest/collect/pic #采集用户端图片信息
+    - /WebAPI/rest/collect/video #用户主动上传视频到嘟嘟服务器(断点续传方式)
+    - /WebAPI/rest/collect/file #用户从app删除上传到服务器的文件
+
+  HDGGYY: #活动广告运营
+    - /WebAPI/rest/adv #取得当前用户相关的广告列表
+    - /WebAPI/rest/macket/signin #用户签到，并获得连续打卡天数
+    - /WebAPI/rest/feedback #用户提交问题建议
+    - /WebAPI/rest/feedback #用户取得自己提交的问题的反馈
+    - /WebAPI/rest/feedback/track #当客服处理完成后，取得回复信息
+    - /WebAPI/rest/feedback/rate #当客服处理完成后，给予客服评分
+
+  WJGJ: #文件处理/工具
+    - /WebAPI/rest/file #从后台服务器下载文件(支持断点续传)
+    - /WebAPI/rest/file/dfs #上传文件到后台文件系统服务器(支持断点续传)
+
+  HY: #好友类
+    - /WebAPI/rest/friend/apply #向指定用户申请成为好友
+    - /WebAPI/rest/friend/applytome/ #取得向我提出加好友申请的用户列表
+    - /WebAPI/rest/friend/add/ #加指定用户成为当前用户的好友
+    - /WebAPI/rest/friend/qrcode #通过二维码加指定用户成为当前用户的好友
+    - /WebAPI/rest/friend/refuse #拒绝别人申请成为我的好友
+    - /WebAPI/rest/friend/delete/ #从我的好友列表删除指定用户
+    - /WebAPI/rest/user/detail #获得好友信息
+    - /WebAPI/rest/friend/my/ #获得我的好友列表
+    - /WebAPI/rest/user/nickname #为我的好友设置昵称(仅自己可见)
+    - /WebAPI/rest/friend/sms #邀请手机联系人中的非嘟嘟用户使用嘟嘟
+    - /WebAPI/rest/friend/recommend #随机推荐好友
+    - /WebAPI/rest/friend/newmessage #取得待处理好友消息
+    - /WebAPI/rest/friend/search #搜一搜(除会话之外其它4个部分)
+
+  PDDT: #频道电台类
+    - /WebAPI/rest/channel/new #创建频道(普通频道)
+    - /WebAPI/rest/channel/nickname #更新自己的昵称
+    - /WebAPI/rest/channel/channelname #管理员更新频道名称
+    - /WebAPI/rest/channel/channelremark #管理员更新频道简介
+    - /WebAPI/rest/channel/ispublic #管理员更新频道是否验证申请的设置
+    - /WebAPI/rest/channel/dismiss #管理员解散频道，并极光消息通知所有成员
+    - /WebAPI/rest/channel/batchadd #管理员批量增加成员到频道中
+    - /WebAPI/rest/channel/batchkick #管理员从频道中批量删除成员
+    - /WebAPI/rest/channel/apply #申请加入频道(需审核)
+    - /WebAPI/rest/channel/add #直接加入频道
+    - /WebAPI/rest/channel/qrcode #二维码方式直接加入频道
+    - /WebAPI/rest/channel/agreeapply #管理员审核同意加入的申请
+    - /WebAPI/rest/channel/refuseapply #管理员拒绝加入的申请
+    - /WebAPI/rest/channel/exit #频道的成员(非管理员)退出频道
+    - /WebAPI/rest/channel/my #取得我的频道列表
+    - /WebAPI/rest/channel/member #取得指定频道的成员列表
+    - /WebAPI/rest/channel/applylist #频道创建者获取申请加入的用户清单(返回所有自己创建的频道的相关信息)
+    - /WebAPI/rest/channel/find #查找频道(通过频道名称/编号)
+    - /WebAPI/rest/channel/recommend #随机推荐频道
+    - /WebAPI/rest/channel/info #取得频道详情
+    - /WebAPI/rest/channel/newmessage #取得待处理频道消息
+    - /WebAPI/rest/channel/status #用户取得自己的频道的活跃统计
+    - /WebAPI/rest/channel/logo #取得频道Logo大图
+    - /WebAPI/rest/channel/isinchannelid #判断自己是否在特定频道内
+    - /WebAPI/rest/radio/list #获取电台列表
+    - /WebAPI/rest/radio/detail #获取某个电台节目
+    - /WebAPI/rest/channel/allmember #取得和我相关的所有频道和频道成员列表(不包含自己)
+    - /WebAPI/rest/radio/infos #电台(新版)获取最新路况交通新闻
