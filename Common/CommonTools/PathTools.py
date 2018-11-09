@@ -30,3 +30,5 @@ config_path=os.path.dirname(os.path.realpath(__file__)).replace('\\','/')+'/conf
 
 #TestCase用例路径
 testcase_path=os.path.join(root_path,'TestCases/').replace('\\','/')
+
+
