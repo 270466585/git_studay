@@ -92,11 +92,11 @@ class ExcelReadTools:
     
 
 if __name__=="__main__":
-    excelread=ExcelReadTools(r'D:\PyCharm\Project\APIautotest\Api_kg\Data\parameter.xlsx')
-    print(excelread.get_AllSheets())
-    print(excelread.get_SheetbyName('Activity'))
-    print(excelread.get_nrows('Activity'))
-    print(excelread.get_ncolumns('Activity'))
-    print(excelread.get_value('Activity',0,1))
-    print(excelread.get_row_values('Activity',3))
-    print(excelread.get_column_values('Activity',0))
+    excelread=ExcelReadTools(r'D:\linkofcar_api\Data\Data_API.xlsx')
+   # print(excelread.get_AllSheets())
+    #print(excelread.get_SheetbyName('DL'))
+    #print(excelread.get_nrows('DL'))
+    #print(excelread.get_ncolumns('DL'))
+    #print(excelread.get_value('DL',0,1))
+    print(excelread.get_row_values('DL',1))
+    #print(excelread.get_column_values('DL',2))

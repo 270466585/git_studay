@@ -25,7 +25,7 @@ class ExcelTestTools:
         self.writeexcel=ExcelWriteTools(reportname)
         self.req=RequestTools()
         self.log=LogTools()
-        self.db=DataBaseTools()
+        #self.db=DataBaseTools()
         #统计测试用例数量信息
         self.sumnum=0           #用例总数
         self.successnum=0       #成功笔数
@@ -65,8 +65,8 @@ class ExcelTestTools:
         data_dict=self.read_sheet(sheetname)
         param_list=data_dict[key]
         #获取token值
-        sql='select token from userlogin where telnum=17318971827;'
-        token=self.db.get_selectdata_row(sql,0)
+        #sql='select token from userlogin where telnum=17318971827;'
+        #token=self.db.get_selectdata_row(sql,0)
         #获取参数组合成字典
         param_dict['test_class']=param_list[0]
         param_dict['test_title']=param_list[1]
@@ -79,7 +79,7 @@ class ExcelTestTools:
         param_dict['errorCode']=param_list[8]
         param_dict['isTrue']=param_list[9]
         param_dict['errorMessage']=param_list[10]
-        param_dict['token']=token[0]
+        #param_dict['token']=token[0]
         return param_dict
 
     def send_request(self,param_dict,worksheet,cellid):
@@ -371,9 +371,9 @@ class ExcelTestTools:
             num_dict['successnum']=self.successnum
             num_dict['failnum']=self.failnum
             #初始化数据
-            self.sumnum=0
-            self.successnum=0
-            self.failnum=0
+            # self.sumnum=0
+            # self.successnum=0
+            # self.failnum=0
             return num_dict
         except Exception:
             print('执行失败，请检查sheetname是否在Data_API.xlsx中存在.')
@@ -386,8 +386,10 @@ class ExcelTestTools:
 
 if __name__=="__main__":
     excel=ExcelTestTools()
-    sumnum,successnum,failnum=excel.do_excel_alltests('ZC')
-    print(sumnum,successnum,failnum)
-    excel.closeTools()
+    # sumnum,successnum,failnum=excel.do_excel_alltests('ZC')
+    # print(sumnum,successnum,failnum)
+    # excel.closeTools()
+    #print(excel.read_sheet('DL'))
+    print(excel.write_basic_info('DL'))
 
 

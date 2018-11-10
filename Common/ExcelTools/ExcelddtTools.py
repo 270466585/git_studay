@@ -5,7 +5,6 @@ from Common.ExcelTools.ExcelReadTools import ExcelReadTools
 from Common.CommonTools.PathTools import data_path
 from Common.CommonTools.RequestTools import RequestTools
 from Common.CommonTools.LogTools import LogTools
-from Common.CommonTools.DataBaseTools import DataBaseTools
 
 '''Excelddt数据驱动unittest测试相关函数'''
 
@@ -16,7 +15,6 @@ class ExcelDDTTools:
         self.readexcel = ExcelReadTools(datafile)
         self.req = RequestTools()
         self.log = LogTools()
-        self.db = DataBaseTools()
 
     def get_ddt_datalist(self,sheetname):
         '''
@@ -57,8 +55,6 @@ class ExcelDDTTools:
         data_dict=self._read_sheet(sheetname)
         param_list=data_dict[key]
         #获取token值
-        sql='select token from userlogin where telnum=17318971827;'
-        token=self.db.get_selectdata_row(sql,0)
         #获取参数组合成字典
         param_dict['test_class']=param_list[0]
         param_dict['test_title']=param_list[1]
@@ -71,7 +67,6 @@ class ExcelDDTTools:
         param_dict['errorCode']=param_list[8]
         param_dict['isTrue']=param_list[9]
         param_dict['errorMessage']=param_list[10]
-        param_dict['token']=token[0]
         return param_dict
 
     def send_request(self,param_dict):

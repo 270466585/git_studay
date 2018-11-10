@@ -20,7 +20,6 @@ class ExcelWriteTools:
         self.createtime=time.strftime('%Y%m%d-%H:%M:%S')    #创建时间
         self.reportname=self._set_reportname(reportname)    #创建名称
         self.reportfilepath=execlreport_path+self.reportname #文件完整路径
-        #编辑文件
         self.workbook=xlsxwriter.Workbook(self.reportfilepath)  #创建xlsx文件
 
     def _set_reportname(self,name=None):
@@ -329,7 +328,17 @@ class ExcelWriteTools:
 
 if __name__=="__main__":
     excel=ExcelWriteTools('test')
-    excel.create_cover_gui('车之联API接口测试报告')
+    '''
+        创建ExcelReport测试报告封面
+        :param worksheet: 工作sheet
+        :param title: 测试报告主题
+        :param sumnum: 总用例个数
+        :param successnum: 成功用例个数
+        :param failnum: 失败用例个数
+        :param skipnum: 跳过用例个数
+        :param usetime: 执行时间
+        '''
+    excel.create_cover_gui('czl_api','null',23,23,23,23,10)
     sheet1 = excel.add_worksheet('活动')
     sheet2=excel.add_worksheet('加油')
     excel.create_table_gui(sheet1)
